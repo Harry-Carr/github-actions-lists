@@ -1,0 +1,71 @@
+# Unexpected OIDC-capable Actions that mint with an AWS STS audience
+# and/or a caller-controlled / open audience.
+#
+# Source: 629 unexpected_oidc_capable finding rows in output/*-report.jsonl
+# Filter:
+#   aws_sts — sts.amazonaws.com or AssumeRoleWithWebIdentity in evidence
+#   variable_audience — audience from inputs / INPUT_* / ${...}, OR
+#                        getIDToken(audience|aud|oidcAudience) at a call site
+#   Excludes fixed product consts e.g. getIDToken(OIDC_AUDIENCE)
+#   (false positive was soroush-tech/bench-action).
+# Unique owner/repo: 56
+#
+# Format matches input_lists/*.actions.yaml (scanner-consumable).
+
+actions:
+  - 1Password/load-secrets-action@main  # variable_audience
+  - accessibility-pro/action@main  # variable_audience
+  - AikidoSec/code-coverage-github-action@main  # variable_audience
+  - amannm/terraform-s3-backend-action@main  # aws_sts
+  - andreaso/vault-oidc-ssh-cert-action@main  # variable_audience
+  - anoopt/action-pnp-powershell-with-oidc@main  # variable_audience
+  - anthropics/claude-code-action@8d70a0dd265122bd65b8e09d3d959e65373ae2a1  # variable_audience
+  - anthropics/claude-code-base-action@main  # variable_audience
+  - apimap/github-actions-apimap-publish@main  # variable_audience
+  - AtA-Systems/vax-security-scan@main  # variable_audience
+  - bufbuild/buf-action@main  # variable_audience
+  - chainguard-dev/setup-chainctl@main  # variable_audience
+  - ciffelia/tailscale-authenticate-action@main  # variable_audience
+  - cloudfleet-actions/configure-kubectl@main  # variable_audience
+  - ConfigButler/settings-image@main  # variable_audience
+  - denoland/deployctl@main  # variable_audience
+  - DependencyTrack/gh-upload-sbom@main  # variable_audience
+  - Depthmark/github-sts-action@main  # variable_audience
+  - devopshouse/oci-oidc-auth-config@main  # variable_audience
+  - dflook/configure-oidc-aws-credentials@main  # variable_audience
+  - docker/cagent-action@main  # aws_sts
+  - docker/login-action@master  # variable_audience
+  - EchelonFour/azure-devops-login@main  # variable_audience
+  - everpcpc/tencentcloud-oidc-auth@main  # variable_audience
+  - fluxzero-io/fluxzero-jwt-action@main  # variable_audience
+  - fredydlemus/s3-backup@main  # variable_audience
+  - frenchvandal/aliyun-oss-cdn-sync-action@main  # variable_audience
+  - garnet-org/action@main  # variable_audience
+  - Gheop/mcdview-action@main  # variable_audience
+  - helaili/github-oidc-auth@main  # variable_audience
+  - hyperskill/skilllens-action@main  # variable_audience
+  - Infisical/auth-action@main  # variable_audience
+  - Infisical/secrets-action@main  # variable_audience
+  - jfrog/setup-jfrog-cli@f748a0599171a192a2668afee8d0497f7c1069df  # variable_audience
+  - jolterjs/register-release-action@main  # variable_audience
+  - jonjys/deploydoctor-action@main  # variable_audience
+  - Labelixa/labelixa-action@main  # variable_audience
+  - magic7s/expose-jwt-action@main  # variable_audience
+  - mathematic-inc/bucket-cache-action@main  # variable_audience
+  - mozillazg/alibabacloud-oidc-auth@main  # variable_audience
+  - nicolonsky/WIF@main  # variable_audience
+  - nuxt-hub/action@main  # variable_audience
+  - octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05  # variable_audience
+  - OctopusDeploy/login@main  # variable_audience
+  - redhat-actions/oc-login@main  # variable_audience
+  - release-gems/action@main  # variable_audience
+  - reworkio/REWORK-Proof@main  # variable_audience
+  - Rikthepixel/infisical-token-action@main  # variable_audience
+  - rubygems/configure-rubygems-credentials@main  # variable_audience
+  - rust-lang/crates-io-auth-action@main  # variable_audience
+  - self-actuated/openfaas-oidc@main  # variable_audience
+  - sonolink/arbiterer@main  # variable_audience
+  - steve-todorov/oidc-debugger-action@main  # variable_audience
+  - TraceMachina/nativelink-action@main  # variable_audience
+  - TremoloSecurity/action-generate-oidc-jwt@main  # variable_audience
+  - wechuli/actionsutils@main  # variable_audience
